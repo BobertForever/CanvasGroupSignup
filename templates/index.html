@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>CS439 Canvas Group Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+      <form method="post" action="/create">
+        <div class="form-group">
+          <label for="name">Group Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter desired group name">
+        </div>
+        {% for i in range(0, members) %}
+          <div class="form-group">
+            <label for="name">Group Member {{ i + 1 }} {% if i >= 2 %}(optional){% endif %}</label>
+            <input type="text" class="form-control" id="{{ 'email' ~ i }}" name="{{ 'email' ~ i }}" placeholder="Enter Email {{ i + 1 }}">
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- External scripts -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>
